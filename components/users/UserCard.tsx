@@ -2,7 +2,7 @@ import type { UserType } from "../../types/users";
 
 const UserCard = ({ user }: { user: UserType }) => {
   return (
-    <div key={user.id} className="flex flex-col mb-5">
+    <div className="flex flex-col mb-5">
       <h3 className="font-bold">{user.name}</h3>
       <p>
         Email:{" "}
