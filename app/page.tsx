@@ -9,7 +9,9 @@ const Page = async () => {
   return (
     <>
       <ThemeToggle />
-      <Users users={users} />
+      <div className="flex w-full max-w-[1440px] mx-auto text-gray-600 dark:bg-gray-800 dark:text-gray-200">
+        <Users users={users} />
+      </div>
     </>
   );
 };
