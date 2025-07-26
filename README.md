@@ -8,7 +8,7 @@ To learn more about the Chadwick TMDB Movie App, take a look at the following re
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Vite](https://vite.dev/) - next generation frontend tooling.
+- [Turbopack](https://nextjs.org/docs/app/api-reference/turbopack) - an incremental bundler optimized for JavaScript and TypeScript, written in Rust, and built into Next.js.
 - [Tailwind](https://tailwindcss.com/docs/installation/using-vite) - utility-first CSS framework.
 - [TMDB (The Movie Database) Api](https://www.themoviedb.org/) - online database for movies and TV shows.
 
@@ -16,14 +16,14 @@ To learn more about the Chadwick TMDB Movie App, take a look at the following re
 
 To setup the TMDB api for local development do the following:
 
-1. At root level create a file `.env.local`.
-2. Add the following values to `.env.local`:
+1. At root level create a file named `.env.local`.
+2. Add the following values to this new `.env.local` file:
 ```javascript
 TMDB_API_KEY=your_api_key_here
 ```
-3. Access the API key in your server-side code: `const tmdbApiKey = process.env.TMDB_API_KEY`.
+3. Now you can access the API key in your server-side code, example: `const tmdbApiKey = process.env.TMDB_API_KEY`.
 4. Make sure `.env.local` is listed in your `.gitignore` file so it's not committed to version control. (I've handled this already with `.env*`).
-5. Never expose your TMDB API key to the client (do NOT use `NEXT_PUBLIC_TMDB_API_KEY`).
+5. Never expose your TMDB API key to the client (therefor do NOT use `NEXT_PUBLIC_TMDB_API_KEY`).
 
 ## Getting Started
 
