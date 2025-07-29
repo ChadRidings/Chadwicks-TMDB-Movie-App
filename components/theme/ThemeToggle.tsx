@@ -23,12 +23,13 @@ const ThemeToggle = () => {
   };
 
   return (
-    <button
+    <span
       onClick={toggleTheme}
-      className="px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-800"
+      className="text-gray-600 dark:text-gray-300 hover:underline text-xl cursor-pointer"
+      title="Toggle Dark/Light Theme"
     >
-      {isDark ? "Light Mode" : "Dark Mode"}
-    </button>
+      <i className={isDark ? "bi bi-eye" : "bi bi-eye-fill"}></i>
+    </span>
   );
 };
 
