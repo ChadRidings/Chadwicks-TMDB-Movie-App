@@ -11,7 +11,8 @@ To learn more about the Chadwick TMDB Movie App, take a look at the following re
 - [Turbopack](https://nextjs.org/docs/app/api-reference/turbopack) - An incremental bundler optimized for JavaScript and TypeScript, written in Rust, and built into Next.js.
 - [Tailwind](https://tailwindcss.com/docs/installation/using-vite) - A utility-first CSS framework.
 - [Bootstrap Icons](https://icons.getbootstrap.com/) - Free, high quality, open source icon library with over 2,000 icons.
-- [TMDB (The Movie Database) Api](https://www.themoviedb.org/) - online database for movies and TV shows.
+- [TMDB (The Movie Database)](https://www.themoviedb.org/) - online database for movies and TV shows.
+- [TMDB API Reference](https://developer.themoviedb.org/reference/intro/getting-started) - The Movie Database (TMDB) API Reference
 
 ## Setting up TMDB Api Key
 

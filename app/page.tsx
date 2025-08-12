@@ -1,13 +1,19 @@
-// import type { UserType } from "../types/users";
 import VideoPlayer from "../components/videoPlayer/VideoPlayer";
+import TrendingMovies from "../components/movies/trending/trendingMovies";
+import UpcomingMovies from "../components/movies/upcoming/upcomingMovies";
 
 const Page = async () => {
-    // const response = await fetch("https://jsonplaceholder.typicode.com/users");
-    // const users: UserType[] = await response.json();
+    // const tmdbApiKey = process.env.TMDB_API_KEY;
+    // const response = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${tmdbApiKey}&language=en-US`, {
+    //     next: { revalidate: 60 },
+    // });
+    // const trending = await response.json();
 
     return (
         <>
-            <div className="flex w-full max-w-[1440px] mx-auto bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-200">
+            <div className="flex flex-col w-full max-w-[1440px] mx-auto bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-200">
+                <TrendingMovies />
+                <UpcomingMovies />
                 <VideoPlayer />
             </div>
         </>
