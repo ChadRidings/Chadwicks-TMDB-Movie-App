@@ -33,11 +33,11 @@ export default function VideoPlayer() {
                     src={currentVideo}
                 />
 
-                <div className="mt-2 flex gap-2">
-                    <button onClick={handlePlay}>▶</button> |
-                    <button onClick={handlePause}>⏸</button> |
-                    <button onClick={() => handleSeek(-5)}>⏪</button> |
-                    <button onClick={() => handleSeek(5)}>⏩</button>
+                <div className="mt-2 flex gap-2 text-3xl text-grey-300 dark:text-white">
+                    <button onClick={handlePlay}><i className="bi bi-play-circle"></i></button>
+                    <button onClick={handlePause}><i className="bi bi-pause-circle"></i></button>
+                    <button onClick={() => handleSeek(-5)}><i className="bi bi-rewind-circle"></i></button>
+                    <button onClick={() => handleSeek(5)}><i className="bi bi-fast-forward-circle"></i></button>
                 </div>
             </div>
         </div>
