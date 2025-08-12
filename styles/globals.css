@@ -2,5 +2,10 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Custom Theme Overrides for Tailwind */
+@theme {
+    --color-zinc-950: #030708;
+}
+
 /* Bootstrap Icons */
 @import "bootstrap-icons/font/bootstrap-icons";

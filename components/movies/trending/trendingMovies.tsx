@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import type { MovieType } from '../../../types/movies';
+import TrendingCard from './trendingCard';
 
 const TrendingMovies = async () => {
     const tmdbApiKey = process.env.TMDB_API_KEY;
@@ -18,24 +18,10 @@ const TrendingMovies = async () => {
 
     return (
         <>
-            <div className="flex flex-col w-full">
-                <h1 className="text-2xl font-bold mb-4">Trending Movies</h1>
+            <div className="flex flex-row w-full overflow-x-scroll">
+                <h1 className="text-2xl font-bold">Trending Movies</h1>
                 {trending.results.map((movie: MovieType) => (
-                    <div key={movie.id} className="p-4">
-                        <Image
-                            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                            alt={movie.title}
-                            width={500}
-                            height={500}
-                            className="rounded-lg shadow-lg"
-                            loading="lazy"
-                            style={{ width: '200px', height: 'auto' }}
-
-                        />
-                        <h2 className="text-xl font-bold">{movie.title}</h2>
-                        <p className="text-sm">{movie.release_date}</p>
-                        <p className="text-sm">{movie.overview}</p>
-                    </div>
+                    <TrendingCard movie={movie} key={movie.id} />
                 ))}
             </div>
         </>

@@ -24,7 +24,7 @@ export default function VideoPlayer() {
     };
 
     return (
-        <div className="flex flex-colw-full mx-auto bg-white dark:bg-gray-800 columns-lg rounded-lg shadow-lg">
+        <div className="flex flex-colw-full mx-auto bg-white dark:bg-zinc-950 columns-lg rounded-lg shadow-lg">
             <div className="p-5">
                 <video
                     ref={videoRef}
