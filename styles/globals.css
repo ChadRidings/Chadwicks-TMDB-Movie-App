@@ -2,9 +2,13 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Custom Theme Overrides for Tailwind */
+/*
+    Custom Theme Overrides for Tailwind
+    This is where you can define custom colors, fonts, and other styles
+    that will be used throughout your application.
+*/
 @theme {
-    --color-zinc-950: #030708;
+    --color-zinc-950: #030708; /* Dark mode background */
 }
 
 /* Bootstrap Icons */

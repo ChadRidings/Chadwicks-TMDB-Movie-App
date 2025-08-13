@@ -3,7 +3,7 @@ import type { MovieType } from '../../../types/movies';
 
 const TrendingCard = ({ movie }: { movie: MovieType }) => {
     return (
-        <div key={movie.id} className="p-4">
+        <div key={movie.id} className="m-4">
             <Image
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
