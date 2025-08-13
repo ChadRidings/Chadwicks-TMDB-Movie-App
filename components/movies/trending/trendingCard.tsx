@@ -1,4 +1,5 @@
 import Image from "next/image";
+import StarRanking from "../../starRanking/StarRanking";
 import type { MovieType } from "../../../types/movies";
 
 const TrendingCard = ({ movie }: { movie: MovieType }) => {
@@ -24,7 +25,9 @@ const TrendingCard = ({ movie }: { movie: MovieType }) => {
                 <div className="flex-1 overflow-y-hidden">
                     <p className="text-sm">{movie.overview}</p>
                 </div>
-                <div className="flex-shrink-0">(star system)</div>
+                <div className="flex-shrink-0">
+                    <StarRanking rating={movie.vote_average} />
+                </div>
             </div>
         </div>
     );
