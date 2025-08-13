@@ -5,7 +5,7 @@ const TrendingCard = ({ movie }: { movie: MovieType }) => {
     return (
         <div
             key={movie.id}
-            className="flex flex-direction-row items-start m-4 p-4 bg-white dark:bg-primary-gray rounded-lg"
+            className="flex flex-direction-row items-start m-2 p-4 bg-white dark:bg-primary-gray rounded-lg h-[222px]"
         >
             <div className="w-[128px] mr-4">
                 <Image
@@ -17,10 +17,14 @@ const TrendingCard = ({ movie }: { movie: MovieType }) => {
                     height={192}
                 />
             </div>
-            <div className="w-[180px]">
-                <h2 className="text-xl font-bold">{movie.title}</h2>
-                <p className="text-sm">{movie.release_date}</p>
-                <p className="text-sm">{movie.overview}</p>
+            <div className="w-[180px] h-[192px] flex flex-col">
+                <div className="flex-shrink-0 overflow-x-hidden whitespace-nowrap text-ellipsis text-primary-yellow">
+                    {movie.title}
+                </div>
+                <div className="flex-1 overflow-y-hidden">
+                    <p className="text-sm">{movie.overview}</p>
+                </div>
+                <div className="flex-shrink-0">(star system)</div>
             </div>
         </div>
     );
