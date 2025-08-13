@@ -11,7 +11,7 @@ const Page = async () => {
 
     return (
         <>
-            <div className="flex flex-col max-w-[1440px] mx-auto bg-gray-100 text-gray-600 dark:bg-zinc-950 dark:text-gray-200 p-4">
+            <div className="flex flex-col max-w-[1440px] mx-auto bg-gray-100 text-gray-600 dark:bg-primary-dark dark:text-gray-200 p-4">
                 <div className="w-full">
                     <TrendingMovies />
                 </div>

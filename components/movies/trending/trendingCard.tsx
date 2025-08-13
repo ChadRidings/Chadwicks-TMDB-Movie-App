@@ -5,7 +5,7 @@ const TrendingCard = ({ movie }: { movie: MovieType }) => {
     return (
         <div
             key={movie.id}
-            className="flex flex-direction-row items-start m-4 p-4 bg-white dark:bg-slate-900 rounded-lg"
+            className="flex flex-direction-row items-start m-4 p-4 bg-white dark:bg-primary-gray rounded-lg"
         >
             <div className="w-[128px] mr-4">
                 <Image

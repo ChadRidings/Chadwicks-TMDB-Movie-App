@@ -4,11 +4,12 @@
 
 /*
     Custom Theme Overrides for Tailwind
-    This is where you can define custom colors, fonts, and other styles
-    that will be used throughout your application.
+    This is where you can define custom colors, fonts, and other styles that will be used throughout your application.
 */
 @theme {
-    --color-zinc-950: #030708; /* Dark mode background */
+    /* custom colors */
+    --color-primary-dark: #030708;
+    --color-primary-gray: #2f2e2c;
 }
 
 /* Bootstrap Icons */
