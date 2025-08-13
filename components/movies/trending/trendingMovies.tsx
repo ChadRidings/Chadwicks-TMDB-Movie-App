@@ -19,7 +19,7 @@ const TrendingMovies = async () => {
     return (
         <>
             <h1 className="text-2xl font-bold">Trending Movies</h1>
-            <div className="flex flex-row w-full overflow-x-scroll">
+            <div className="flex flex-row flex-nowrap overflow-x-hidden overflow-x-scroll">
                 {trending.results.map((movie: MovieType) => (
                     <TrendingCard movie={movie} key={movie.id} />
                 ))}
