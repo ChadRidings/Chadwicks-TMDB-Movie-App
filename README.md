@@ -33,6 +33,12 @@ TMDB_API_KEY=your_api_key_here
 First, run the development server:
 
 ```bash
+# Install dependencies:
+npm i
+```
+
+```bash
+# Build the application:
 npm run dev
 # or
 yarn dev
