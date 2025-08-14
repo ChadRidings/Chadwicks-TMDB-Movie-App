@@ -2,5 +2,19 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+/*
+    Custom Theme Overrides for Tailwind
+    This is where you can define custom colors, fonts, and other styles that will be used throughout your application.
+*/
+@theme {
+    /* custom colors */
+    --color-primary-dark: #030708;
+    --color-primary-gray: #2f2e2c;
+    --color-primary-yellow: #faa91a;
+    --color-primary-ivory: #F3E7D3;
+    --color-primary-orange: #E25D1D;
+    --color-primary-blue: #1E90FF;
+}
+
 /* Bootstrap Icons */
 @import "bootstrap-icons/font/bootstrap-icons";
