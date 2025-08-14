@@ -1,11 +1,8 @@
-import type { MovieType } from '../../../types/movies';
-import TrendingCard from './trendingCard';
+import TrendingShell from "./trendingShell";
 
 const TrendingMovies = async () => {
     const tmdbApiKey = process.env.TMDB_API_KEY;
-    const response = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${tmdbApiKey}&language=en-US`, {
-        next: { revalidate: 60 },
-    });
+    const response = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${tmdbApiKey}&language=en-US`);
 
     if (!tmdbApiKey) {
         throw new Error("TMDB_API_KEY is not defined");
@@ -18,12 +15,7 @@ const TrendingMovies = async () => {
 
     return (
         <>
-            <h1 className="text-2xl font-bold">Trending Movies</h1>
-            <div className="flex flex-row flex-nowrap overflow-x-hidden overflow-x-scroll">
-                {trending.results.map((movie: MovieType) => (
-                    <TrendingCard movie={movie} key={movie.id} />
-                ))}
-            </div>
+            <TrendingShell trending={trending.results} />   
         </>
     );
 };
