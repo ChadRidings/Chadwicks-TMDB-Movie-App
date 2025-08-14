@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import type { MovieType } from '../../../types/movies';
+import type { MovieType } from '../../../types/global';
 
 const PopularMovies = async () => {
     const tmdbApiKey = process.env.TMDB_API_KEY;

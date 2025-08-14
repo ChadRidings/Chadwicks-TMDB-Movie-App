@@ -1,6 +1,8 @@
+'use client';
+
 import Image from "next/image";
 import StarRanking from "../../starRanking/StarRanking";
-import type { MovieType } from "../../../types/movies";
+import type { MovieType } from "../../../types/global";
 
 const TrendingCard = ({ movie }: { movie: MovieType }) => {
     return (
