@@ -27,7 +27,7 @@ const TrendingCard = ({ movie }: { movie: MovieType }) => {
                 <div className="flex-1 overflow-y-hidden">
                     <p className="text-sm">{movie.overview}</p>
                 </div>
-                <div className="flex-shrink-0">
+                <div className="flex-shrink-0 mb-1">
                     <StarRanking rating={movie.vote_average} />
                 </div>
             </div>

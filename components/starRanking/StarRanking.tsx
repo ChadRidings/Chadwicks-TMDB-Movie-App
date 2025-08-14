@@ -6,7 +6,7 @@ const StarRanking = ({ rating }: { rating: number }) => {
             return (
                 <svg
                     key={index}
-                    className="w-6 h-6 text-primary-yellow"
+                    className="w-5 h-5 text-primary-yellow"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                 >
@@ -15,7 +15,7 @@ const StarRanking = ({ rating }: { rating: number }) => {
             );
         } else if (halfStar && index === filledStars) {
             return (
-                <svg key={index} className="w-6 h-6" viewBox="0 0 24 24">
+                <svg key={index} className="w-5 h-5" viewBox="0 0 24 24">
                     <clipPath id="left-half-star-clip">
                         <rect x="0" y="0" width="12" height="24" />
                     </clipPath>
@@ -38,7 +38,7 @@ const StarRanking = ({ rating }: { rating: number }) => {
             return (
                 <svg
                     key={index}
-                    className="w-6 h-6 text-primary-ivory"
+                    className="w-5 h-5 text-primary-ivory"
                     fill="#999"
                     viewBox="0 0 24 24"
                 >

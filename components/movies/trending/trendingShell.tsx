@@ -67,7 +67,7 @@ const TrendingMovies = ({ trending }: { trending: MovieType[] }) => {
                 </div>
             </div>
             <div
-                className="flex flex-row flex-nowrap overflow-x-auto"
+                className="flex flex-row flex-nowrap overflow-x-hidden"
                 ref={containerRef}
             >
                 {trending.map((movie: MovieType) => (
