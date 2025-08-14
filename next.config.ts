@@ -2,10 +2,25 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
     images: {
-        domains: [
-            "image.tmdb.org",
-            "www.themoviedb.org",
-            "chadridings.github.io"
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "image.tmdb.org",
+                port: "",
+                pathname: "/t/p/**",
+            },
+            {
+                protocol: "https",
+                hostname: "www.themoviedb.org",
+                port: "",
+                pathname: "/t/p/**",
+            },
+            {
+                protocol: "https",
+                hostname: "chadridings.github.io",
+                port: "",
+                pathname: "/**",
+            }
         ],
     },
 };

@@ -14,7 +14,7 @@ const TrendingMovies = ({ trending }: { trending: MovieType[] }) => {
                 containerRef.current.querySelector<HTMLElement>(
                     ":first-child"
                 )?.offsetWidth;
-            const newScrollX = Math.max(0, scrollX - (itemWidth ?? 0));
+            const newScrollX = Math.max(0, scrollX - (itemWidth ?? 0) * 2 - 20);
             containerRef.current.scrollTo({
                 left: newScrollX,
                 behavior: "smooth",
@@ -33,7 +33,7 @@ const TrendingMovies = ({ trending }: { trending: MovieType[] }) => {
                 )?.offsetWidth;
             const newScrollX = Math.min(
                 scrollWidth - containerWidth,
-                scrollX + (itemWidth ?? 0)
+                scrollX + (itemWidth ?? 0) * 2
             );
             containerRef.current.scrollTo({
                 left: newScrollX,
@@ -67,7 +67,7 @@ const TrendingMovies = ({ trending }: { trending: MovieType[] }) => {
                 </div>
             </div>
             <div
-                className="flex flex-row flex-nowrap overflow-x-hidden overflow-x-auto"
+                className="flex flex-row flex-nowrap overflow-x-auto"
                 ref={containerRef}
             >
                 {trending.map((movie: MovieType) => (
