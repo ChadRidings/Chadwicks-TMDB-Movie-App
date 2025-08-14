@@ -2,9 +2,9 @@
 
 This is a [Next.js](https://nextjs.org) project created by [Chad Ridings](https://github.com/ChadRidings).
 
-## Learn More
+## The Tools I'm Using
 
-To learn more about the Chadwick TMDB Movie App, take a look at the following resources:
+To learn more about the Chadwick's TMDB Movie App, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - An interactive Next.js tutorial.
