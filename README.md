@@ -1,6 +1,8 @@
-# Chadwick TMDB Movie App
+# Chadwick's TMDB Movie App
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+Created by [Chad Ridings](https://github.com/ChadRidings).
 
 ## Learn More
 
