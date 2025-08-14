@@ -1,26 +1,31 @@
-import Image from 'next/image';
-import type { MovieType } from '../../../types/global';
+'use client';
 
-const PopularMovies = async () => {
-    const tmdbApiKey = process.env.TMDB_API_KEY;
-    const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${tmdbApiKey}&language=en-US`, {
-        next: { revalidate: 60 },
+import { useQuery } from "@tanstack/react-query";
+import Image from "next/image";
+import type { MovieType } from "../../../types/global";
+import { CACHE_DURATION } from "../../../constants/global";
+
+const UpcomingMovies = () => {
+    const { data, error, isLoading } = useQuery({
+        queryKey: ["trendingMovies"],
+        queryFn: async () => {
+            const res = await fetch("/api/upcoming");
+            if (!res.ok) {
+                throw new Error("Failed to fetch trending movies");
+            }
+            return res.json();
+        },
+        staleTime: CACHE_DURATION
     });
 
-    if (!tmdbApiKey) {
-        throw new Error("TMDB_API_KEY is not defined");
-    }
-    if (!response.ok) {
-        throw new Error("Failed to fetch trending videos");
-    }
-
-    const upcoming = await response.json();
+    if (isLoading) return <p>Loading trending...</p>;
+    if (error) return <p>Error: {error.message}</p>;
 
     return (
         <>
             <div className="flex flex-col w-full">
                 <h1 className="text-2xl font-bold mb-4">Upcoming Movies</h1>
-                {upcoming.results.map((movie: MovieType) => (
+                {data.results.map((movie: MovieType) => (
                     <div key={movie.id} className="p-4">
                         <Image
                             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -29,8 +34,7 @@ const PopularMovies = async () => {
                             height={500}
                             className="rounded-lg shadow-lg"
                             loading="lazy"
-                            style={{ width: '200px', height: 'auto' }}
-
+                            style={{ width: "200px", height: "auto" }}
                         />
                         <h2 className="text-xl font-bold">{movie.title}</h2>
                         <p className="text-sm">{movie.release_date}</p>
@@ -42,4 +46,4 @@ const PopularMovies = async () => {
     );
 };
 
-export default PopularMovies;
+export default UpcomingMovies;

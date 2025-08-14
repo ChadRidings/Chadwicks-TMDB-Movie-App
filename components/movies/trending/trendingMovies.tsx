@@ -1,21 +1,28 @@
+'use client';
+
+import { useQuery } from "@tanstack/react-query";
 import TrendingShell from "./trendingShell";
+import { CACHE_DURATION } from "../../../constants/global";
 
-const TrendingMovies = async () => {
-    const tmdbApiKey = process.env.TMDB_API_KEY;
-    const response = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${tmdbApiKey}&language=en-US`);
+const TrendingMovies = () => {
+    const { data, error, isLoading } = useQuery({
+        queryKey: ["trendingMovies"],
+        queryFn: async () => {
+            const res = await fetch("/api/trending");
+            if (!res.ok) {
+                throw new Error("Failed to fetch trending movies");
+            }
+            return res.json();
+        },
+        staleTime: CACHE_DURATION
+    });
 
-    if (!tmdbApiKey) {
-        throw new Error("TMDB_API_KEY is not defined");
-    }
-    if (!response.ok) {
-        throw new Error("Failed to fetch trending videos");
-    }
-
-    const trending = await response.json();
+    if (isLoading) return <p>Loading trending...</p>;
+    if (error) return <p>Error: {error.message}</p>;
 
     return (
         <>
-            <TrendingShell trending={trending.results} />   
+            <TrendingShell trending={data.results} />
         </>
     );
 };
