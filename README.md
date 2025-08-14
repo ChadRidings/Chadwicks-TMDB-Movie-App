@@ -30,8 +30,6 @@ TMDB_API_KEY=your_api_key_here
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
 # Install dependencies:
 npm i
