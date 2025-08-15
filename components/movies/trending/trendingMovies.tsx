@@ -17,7 +17,7 @@ const TrendingMovies = () => {
         staleTime: CACHE_DURATION,
     });
 
-    if (isLoading) return <p>Loading trending...</p>;
+    if (isLoading) return <p>Loading trending movies...</p>;
     if (error) return <p>Error: {error.message}</p>;
 
     return (

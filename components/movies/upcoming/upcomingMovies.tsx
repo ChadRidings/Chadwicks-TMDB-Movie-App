@@ -6,18 +6,18 @@ import { CACHE_DURATION } from "../../../constants/global";
 
 const UpcomingMovies = () => {
     const { data, error, isLoading } = useQuery({
-        queryKey: ["trendingMovies"],
+        queryKey: ["upcomingMovies"],
         queryFn: async () => {
             const res = await fetch("/api/upcoming");
             if (!res.ok) {
-                throw new Error("Failed to fetch trending movies");
+                throw new Error("Failed to fetch upcoming movies");
             }
             return res.json();
         },
         staleTime: CACHE_DURATION,
     });
 
-    if (isLoading) return <p>Loading trending...</p>;
+    if (isLoading) return <p>Loading upcoming movies...</p>;
     if (error) return <p>Error: {error.message}</p>;
 
     return (

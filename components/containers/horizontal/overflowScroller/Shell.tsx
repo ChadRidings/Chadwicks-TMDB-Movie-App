@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import type { MovieType } from "../../../../types/global";
-import CardVersionOne from "../../cards/Card";
+import CardVersionOne from "../../cards/version1/Card";
 
 const OverflowScroller = ({
     data,
