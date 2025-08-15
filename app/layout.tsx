@@ -15,14 +15,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "NextJS App Boilerplate",
-    description:
-        "NextJS App Boilerplate with Geist UI and TailwindCSS created by Chad Ridings",
+    title: "Chadwick's TMDB Movie App",
+    description: "NextJS App Boilerplate created by Chad Ridings",
 };
 
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
     return (
-        <html lang="en">
+        <html lang="en" className="dark">
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
             >
