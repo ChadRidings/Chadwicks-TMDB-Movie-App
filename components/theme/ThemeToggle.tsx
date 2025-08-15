@@ -30,7 +30,10 @@ const ThemeToggle = () => {
             className="text-gray-600 dark:text-gray-300 hover:underline text-xl cursor-pointer"
             title="Toggle Dark/Light Theme"
         >
-            <i className={isDark ? "bi bi-eye" : "bi bi-eye-fill"}></i>
+            <i
+                className={isDark ? "bi bi-eye-fill" : "bi bi-eye"}
+                aria-label="Toggle Dark/Light Theme"
+            ></i>
         </span>
     );
 };
