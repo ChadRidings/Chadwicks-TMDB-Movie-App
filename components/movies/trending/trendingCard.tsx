@@ -18,6 +18,7 @@ const TrendingCard = ({ movie }: { movie: MovieType }) => {
                     loading="lazy"
                     width={128}
                     height={192}
+                    style={{ width: "128px", height: "192px", objectFit: 'cover' }}
                 />
             </div>
             <div className="w-[180px] h-[192px] flex flex-col">
