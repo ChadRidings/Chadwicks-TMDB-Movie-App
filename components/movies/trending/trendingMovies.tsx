@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
 import { useQuery } from "@tanstack/react-query";
-import TrendingShell from "./trendingShell";
+import OverflowScroller from "../../containers/horizontal/overflowScroller/Shell";
 import { CACHE_DURATION } from "../../../constants/global";
 
 const TrendingMovies = () => {
@@ -14,7 +14,7 @@ const TrendingMovies = () => {
             }
             return res.json();
         },
-        staleTime: CACHE_DURATION
+        staleTime: CACHE_DURATION,
     });
 
     if (isLoading) return <p>Loading trending...</p>;
@@ -22,7 +22,7 @@ const TrendingMovies = () => {
 
     return (
         <>
-            <TrendingShell trending={data.results} />
+            <OverflowScroller data={data.results} title="Trending Movies" />
         </>
     );
 };

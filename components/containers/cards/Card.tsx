@@ -4,7 +4,7 @@ import Image from "next/image";
 import StarRanking from "../../starRanking/StarRanking";
 import type { MovieType } from "../../../types/global";
 
-const TrendingCard = ({ movie }: { movie: MovieType }) => {
+const CardVersionOne = ({ movie }: { movie: MovieType }) => {
     return (
         <div
             key={movie.id}
@@ -36,4 +36,4 @@ const TrendingCard = ({ movie }: { movie: MovieType }) => {
     );
 };
 
-export default TrendingCard;
+export default CardVersionOne;
