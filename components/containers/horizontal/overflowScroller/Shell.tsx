@@ -1,10 +1,16 @@
 "use client";
 
 import { useState, useRef } from "react";
-import type { MovieType } from "../../../types/global";
-import TrendingCard from "./trendingCard";
+import type { MovieType } from "../../../../types/global";
+import CardVersionOne from "../../cards/Card";
 
-const TrendingMovies = ({ trending }: { trending: MovieType[] }) => {
+const OverflowScroller = ({
+    data,
+    title,
+}: {
+    data: MovieType[];
+    title: string;
+}) => {
     const [scrollX, setScrollX] = useState<number>(0);
     const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -46,7 +52,7 @@ const TrendingMovies = ({ trending }: { trending: MovieType[] }) => {
     return (
         <>
             <div className="flex flex-row justify-between items-center mb-4">
-                <h1 className="text-2xl font-bold">Trending Movies</h1>
+                <h1 className="text-2xl font-bold">{title}</h1>
                 <div className="flex flex-row">
                     <i
                         className={`bi bi-chevron-left text-primary-ivory hover:text-primary-blue text-2xl mr-4 transition duration-300 cursor-pointer ${
@@ -70,12 +76,12 @@ const TrendingMovies = ({ trending }: { trending: MovieType[] }) => {
                 className="flex flex-row flex-nowrap overflow-x-hidden"
                 ref={containerRef}
             >
-                {trending.map((movie: MovieType) => (
-                    <TrendingCard movie={movie} key={movie.id} />
+                {data.map((movie: MovieType) => (
+                    <CardVersionOne movie={movie} key={movie.id} />
                 ))}
             </div>
         </>
     );
 };
 
-export default TrendingMovies;
+export default OverflowScroller;
