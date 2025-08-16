@@ -19,10 +19,7 @@ const OverflowScroller = ({
 
     const handleScrollLeft = () => {
         if (containerRef.current) {
-            const newScrollX = Math.max(
-                0,
-                scrollX - itemWidth * itemsToScroll
-            );
+            const newScrollX = Math.max(0, scrollX - (itemWidth * itemsToScroll));
             containerRef.current.scrollTo({
                 left: newScrollX,
                 behavior: "smooth",
@@ -52,7 +49,11 @@ const OverflowScroller = ({
         if (containerRef.current) {
             setContainerWidth(containerRef.current.offsetWidth);
             setItemsToScroll(containerRef.current.offsetWidth > 1024 ? 2 : 1);
-            setItemWidth(containerRef.current.querySelector<HTMLElement>(":first-child")?.getBoundingClientRect().width ?? 0);
+            setItemWidth(
+                containerRef.current
+                    .querySelector<HTMLElement>(":first-child")
+                    ?.offsetWidth ?? 0
+            );
         }
     }, []);
 
@@ -80,7 +81,7 @@ const OverflowScroller = ({
                 </div>
             </div>
             <div
-                className="flex flex-row flex-nowrap overflow-x-hidden overflow-x-auto scroll-smooth"
+                className="flex flex-row flex-nowrap overflow-x-hidden overflow-x-scroll scroll-smooth"
                 ref={containerRef}
             >
                 {data.map((movie: MovieType) => (
