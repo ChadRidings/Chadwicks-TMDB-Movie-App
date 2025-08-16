@@ -40,7 +40,7 @@ const OverflowScroller = ({
             );
             if (newScrollX !== scrollX) {
                 containerRef.current.scrollTo({
-                    left: newScrollX + 20,
+                    left: newScrollX,
                     behavior: "smooth",
                 });
                 setScrollX(newScrollX);
