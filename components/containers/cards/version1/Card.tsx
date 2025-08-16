@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -20,7 +20,11 @@ const CardVersionOne = ({ movie }: { movie: MovieType }) => {
                         loading="lazy"
                         width={128}
                         height={192}
-                        style={{ width: "128px", height: "192px", objectFit: 'cover' }}
+                        style={{
+                            width: "128px",
+                            height: "192px",
+                            objectFit: "cover",
+                        }}
                     />
                 </Link>
             </div>

@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
+import { API_TOKEN } from "../../../../constants/global";
 
 export const GET = async () => {
-    const apiToken = process.env.TMDB_ACCESS_TOKEN;
-
-    if (!apiToken) {
+    if (!API_TOKEN) {
         return NextResponse.json(
             { error: "Missing TMDB API key" },
             { status: 500 }
@@ -15,7 +14,7 @@ export const GET = async () => {
             `https://api.themoviedb.org/3/trending/movie/week?&language=en-US`,
             {
                 headers: {
-                    Authorization: `Bearer ${apiToken}`,
+                    Authorization: `Bearer ${API_TOKEN}`,
                 },
             }
         );
