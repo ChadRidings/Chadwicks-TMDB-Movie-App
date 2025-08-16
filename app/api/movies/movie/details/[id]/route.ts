@@ -1,18 +1,29 @@
 import { NextResponse } from "next/server";
 
-export const GET = async () => {
-    const key = process.env.TMDB_API_KEY;
+export const GET = async (
+    _request: Request,
+    { params }: { params: { id: string } }
+) => {
+    const token = process.env.TMDB_ACCESS_TOKEN;
 
-    if (!key) {
+    if (!token) {
         return NextResponse.json(
-            { error: "Missing TMDB API key" },
+            { error: "Missing TMDB access token" },
             { status: 500 }
         );
     }
 
+    const movieId = params.id;
+
     try {
         const res = await fetch(
-            `https://api.themoviedb.org/3/trending/movie/week?api_key=${key}&language=en-US`
+            `https://api.themoviedb.org/3/movie/${movieId}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    Accept: "application/json",
+                },
+            }
         );
 
         if (!res.ok) {
@@ -21,7 +32,7 @@ export const GET = async () => {
                 { status: res.status }
             );
         }
-        
+
         const data = await res.json();
         return NextResponse.json(data);
     } catch (err: unknown) {

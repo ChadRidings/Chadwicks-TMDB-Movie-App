@@ -12,7 +12,12 @@ export const GET = async () => {
 
     try {
         const res = await fetch(
-            `https://api.themoviedb.org/3/movie/upcoming?api_key=${key}&language=en-US`
+            "https://api.themoviedb.org/3/trending/movie/week?language=en-US",
+            {
+                headers: {
+                    Authorization: `Bearer ${key}`,
+                },
+            }
         );
 
         if (!res.ok) {
@@ -21,7 +26,7 @@ export const GET = async () => {
                 { status: res.status }
             );
         }
-        
+
         const data = await res.json();
         return NextResponse.json(data);
     } catch (err: unknown) {
