@@ -4,9 +4,9 @@ export const GET = async (
     _request: Request,
     { params }: { params: { id: string } }
 ) => {
-    const token = process.env.TMDB_ACCESS_TOKEN;
+    const apiToken = process.env.TMDB_ACCESS_TOKEN;
 
-    if (!token) {
+    if (!apiToken) {
         return NextResponse.json(
             { error: "Missing TMDB access token" },
             { status: 500 }
@@ -20,7 +20,7 @@ export const GET = async (
             `https://api.themoviedb.org/3/movie/${movieId}`,
             {
                 headers: {
-                    Authorization: `Bearer ${token}`,
+                    Authorization: `Bearer ${apiToken}`,
                     Accept: "application/json",
                 },
             }

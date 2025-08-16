@@ -22,13 +22,12 @@ To setup the TMDB api for local development do the following:
 1. At root level create a file named `.env.local`.
 2. Add the following values to this new `.env.local` file:
 ```javascript
-TMDB_API_KEY=your_api_key_here
 TMDB_ACCESS_TOKEN=your_longform_token
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
 ```
-3. Now you can access the API key in your server-side code, example: `const tmdbApiKey = process.env.TMDB_API_KEY`.
+3. Now you can access the API key in your server-side code, example: `const tmdbApiToken = process.env.TMDB_ACCESS_TOKEN`.
 4. Make sure `.env.local` is listed in your `.gitignore` file so it's not committed to version control. (I've handled this already with `.env*`).
-5. Never expose your TMDB API key to the client (therefor do NOT use `NEXT_PUBLIC_TMDB_API_KEY`).
+5. Never expose your TMDB API key to the client (therefor do NOT use `NEXT_PUBLIC_TMDB_ACCESS_TOKEN`).
 
 ## Getting Started
 

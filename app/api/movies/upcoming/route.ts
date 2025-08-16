@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 
 export const GET = async () => {
-    const token = process.env.TMDB_ACCESS_TOKEN;
+    const apiToken = process.env.TMDB_ACCESS_TOKEN;
 
-    if (!token) {
+    if (!apiToken) {
         return NextResponse.json(
             { error: "Missing TMDB access token" },
             { status: 500 }
@@ -15,7 +15,7 @@ export const GET = async () => {
             "https://api.themoviedb.org/3/movie/upcoming?language=en-US",
             {
                 headers: {
-                    Authorization: `Bearer ${token}`,
+                    Authorization: `Bearer ${apiToken}`,
                     Accept: "application/json",
                 },
             }
