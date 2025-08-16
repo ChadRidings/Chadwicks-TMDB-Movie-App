@@ -1,23 +1,26 @@
 import Image from "next/image";
+import Link from "next/link";
 import ThemeToggle from "../theme/ThemeToggle";
 
 const NavBar = () => {
     return (
         <nav className="mt-2">
             <ul className="flex space-x-4 items-center">
-                <Image
-                    src="/images/chadwicks.png"
-                    alt="Chadwick's Logo"
-                    width={189}
-                    height={37}
-                    className=""
-                    priority={true}
-                    style={{
-                        width: "189px",
-                        height: "37px",
-                        objectFit: "cover",
-                    }}
-                />
+                <Link href="/">
+                    <Image
+                        src="/images/chadwicks.png"
+                        alt="Chadwick's Logo"
+                        width={189}
+                        height={37}
+                        className=""
+                        priority={true}
+                        style={{
+                            width: "189px",
+                            height: "37px",
+                            objectFit: "cover",
+                        }}
+                    />
+                </Link>
                 <li>
                     <a
                         href="/about"
