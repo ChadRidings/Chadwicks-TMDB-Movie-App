@@ -1,10 +1,8 @@
 import { Providers } from "./providers";
-import VideoPlayer from "../components/videoPlayer/VideoPlayer";
 import TrendingMovies from "../components/movies/trending/trendingMovies";
 import UpcomingMovies from "../components/movies/upcoming/upcomingMovies";
 
 const Page = async () => {
-
     return (
         <>
             <Providers>
@@ -12,9 +10,9 @@ const Page = async () => {
                     <div className="w-full mb-4">
                         <TrendingMovies />
                     </div>
-                    
-                    <UpcomingMovies />
-                    <VideoPlayer />
+                    <div className="w-full mb-4">
+                        <UpcomingMovies />
+                    </div>
                 </div>
             </Providers>
         </>

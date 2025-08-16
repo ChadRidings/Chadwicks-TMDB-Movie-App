@@ -8,23 +8,19 @@ const TrendingMovies = () => {
     const { data, error, isLoading } = useQuery({
         queryKey: ["trendingMovies"],
         queryFn: async () => {
-            const res = await fetch("/api/trending");
+            const res = await fetch("/api/movies/trending");
             if (!res.ok) {
                 throw new Error("Failed to fetch trending movies");
             }
             return res.json();
         },
-        staleTime: CACHE_DURATION,
+        staleTime: CACHE_DURATION, // TanStack Query cache
     });
 
     if (isLoading) return <p>Loading trending movies...</p>;
-    if (error) return <p>Error: {error.message}</p>;
+    if (error) return <p>Error: {(error as Error).message}</p>;
 
-    return (
-        <>
-            <OverflowScroller data={data.results} title="Trending Movies" />
-        </>
-    );
+    return <OverflowScroller data={data.results} title="Trending Movies" />;
 };
 
 export default TrendingMovies;

@@ -15,17 +15,13 @@ const OverflowScroller = ({
     const [scrollX, setScrollX] = useState<number>(0);
     const [containerWidth, setContainerWidth] = useState(0);
     const [itemsToScroll, setItemsToScroll] = useState(1);
+    const [itemWidth, setItemWidth] = useState(0);
 
     const handleScrollLeft = () => {
         if (containerRef.current) {
-            setItemsToScroll(containerWidth >= 1024 ? 2 : 1);
-            const itemWidth =
-                containerRef.current.querySelector<HTMLElement>(
-                    ":first-child"
-                )?.offsetWidth;
             const newScrollX = Math.max(
                 0,
-                scrollX - (itemWidth ?? 0) * itemsToScroll - 20
+                scrollX - itemWidth * itemsToScroll
             );
             containerRef.current.scrollTo({
                 left: newScrollX,
@@ -37,21 +33,18 @@ const OverflowScroller = ({
 
     const handleScrollRight = () => {
         if (containerRef.current) {
-            setItemsToScroll(containerWidth >= 1024 ? 2 : 1);
             const scrollWidth = containerRef.current?.scrollWidth ?? 0;
-            const itemWidth =
-                containerRef.current.querySelector<HTMLElement>(
-                    ":first-child"
-                )?.offsetWidth;
             const newScrollX = Math.min(
                 scrollWidth - containerWidth,
-                scrollX + (itemWidth ?? 0) * itemsToScroll + 20
+                scrollX + (itemWidth * itemsToScroll)
             );
-            containerRef.current.scrollTo({
-                left: newScrollX,
-                behavior: "smooth",
-            });
-            setScrollX(newScrollX);
+            if (newScrollX !== scrollX) {
+                containerRef.current.scrollTo({
+                    left: newScrollX,
+                    behavior: "smooth",
+                });
+                setScrollX(newScrollX);
+            }
         }
     };
 
@@ -59,6 +52,7 @@ const OverflowScroller = ({
         if (containerRef.current) {
             setContainerWidth(containerRef.current.offsetWidth);
             setItemsToScroll(containerRef.current.offsetWidth > 1024 ? 2 : 1);
+            setItemWidth(containerRef.current.querySelector<HTMLElement>(":first-child")?.getBoundingClientRect().width ?? 0);
         }
     }, []);
 
