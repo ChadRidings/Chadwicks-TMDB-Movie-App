@@ -1,14 +1,11 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { Providers } from "../../providers";
 import { CACHE_DURATION } from "../../../constants/global";
 
 async function fetchMovieDetails(movieId: string) {
     const res = await fetch(`/api/movies/movie/details/${movieId}`);
-    if (!res.ok) {
-        throw new Error("Failed to fetch movie details");
-    }
+    if (!res.ok) throw new Error("Failed to fetch movie details");
     return res.json();
 }
 
