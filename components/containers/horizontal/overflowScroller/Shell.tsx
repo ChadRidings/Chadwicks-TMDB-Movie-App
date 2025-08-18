@@ -17,26 +17,48 @@ const OverflowScroller = ({
     const [itemWidth, setItemWidth] = useState(0);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(false);
-    
-    const { width: containerWidth } = useResizeObserver(containerRef);
 
-    // Update metrics when container width or data changes
+    const { width: containerWidth } = useResizeObserver(containerRef); // Observe container width changes
+
+    /**
+     * Update metrics when container width or data changes
+    */
     useEffect(() => {
         if (!containerRef.current) return;
 
+        // Determine how many items to scroll at once based on container width
         setItemsToScroll(containerWidth > 1024 ? 2 : 1);
-        const firstChild =
-            containerRef.current.querySelector<HTMLElement>(":first-child");
-        setItemWidth(firstChild?.offsetWidth ?? 0);
 
-        const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
-        setCanScrollLeft(scrollLeft > 0);
-        setCanScrollRight(scrollLeft < scrollWidth - clientWidth);
+        const container = containerRef.current;
+        const children = Array.from(container.children) as HTMLElement[];
+
+        // Dynamically calculate item width including spacing (margin/gap)
+        if (children.length >= 2) {
+            const first = children[0];
+            const second = children[1];
+
+            const firstRect = first.getBoundingClientRect();
+            const secondRect = second.getBoundingClientRect();
+
+            // Gap between first and second cards
+            const gap = secondRect.left - firstRect.right;
+            setItemWidth(firstRect.width + gap);
+        } else if (children.length === 1) {
+            // Fallback if only one card exists
+            setItemWidth(children[0].getBoundingClientRect().width);
+        }
+
+        // Update arrow states initially
+        setCanScrollLeft(container.scrollLeft > 0);
+        setCanScrollRight(container.scrollLeft < container.scrollWidth - container.clientWidth);
     }, [containerWidth, data]);
 
-    // Listen for scroll events to update arrow states
+    /**
+     * Listen for scroll events to update arrow states dynamically
+     */
     useEffect(() => {
         const container = containerRef.current;
+
         if (!container) return;
 
         const onScroll = () => {
@@ -46,22 +68,30 @@ const OverflowScroller = ({
                     container.scrollWidth - container.clientWidth
             );
         };
-
         container.addEventListener("scroll", onScroll);
+
+        // Cleanup listener on unmount
         return () => container.removeEventListener("scroll", onScroll);
     }, []);
 
-    // Function to scroll left or right
+    /**
+     * Scroll left or right by the correct number of items
+     */
     const scrollBy = (direction: "left" | "right") => {
         if (!containerRef.current) return;
+
+        // Scroll distance based on item width and number of items
         const delta = itemWidth * itemsToScroll;
         const maxScroll =
             containerRef.current.scrollWidth - containerRef.current.clientWidth;
+
+        // Set newScroll position between 0 and maximum scroll
         const newScroll =
             direction === "left"
                 ? Math.max(0, containerRef.current.scrollLeft - delta)
                 : Math.min(maxScroll, containerRef.current.scrollLeft + delta);
 
+        // Smooth scroll to the calculated position
         containerRef.current.scrollTo({ left: newScroll, behavior: "smooth" });
     };
 
@@ -90,10 +120,12 @@ const OverflowScroller = ({
             </div>
             <div
                 ref={containerRef}
-                className="flex flex-nowrap overflow-x-auto scroll-smooth scrollbar-hide"
+                className="flex flex-nowrap overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory"
             >
                 {data.map((movie: MovieType) => (
-                    <CardVersionOne key={movie.id} movie={movie} />
+                    <div key={movie.id} className="snap-start">
+                        <CardVersionOne movie={movie} />
+                    </div>
                 ))}
             </div>
         </>
