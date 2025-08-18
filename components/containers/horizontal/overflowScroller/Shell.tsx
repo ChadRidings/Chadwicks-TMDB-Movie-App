@@ -81,7 +81,7 @@ const OverflowScroller = ({
                 </div>
             </div>
             <div
-                className="flex flex-row flex-nowrap overflow-x-hidden overflow-x-scroll scroll-smooth"
+                className="flex flex-row flex-nowrap overflow-x-auto scroll-smooth scrollbar-hide"
                 ref={containerRef}
             >
                 {data.map((movie: MovieType) => (
