@@ -18,7 +18,8 @@ const OverflowScroller = ({
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(false);
 
-    const { width: containerWidth } = useResizeObserver(containerRef); // Observe container width changes
+    // Observe container width changes
+    const { width: containerWidth } = useResizeObserver(containerRef);
 
     /**
      * Update metrics when container width or data changes
