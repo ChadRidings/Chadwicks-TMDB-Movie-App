@@ -64,10 +64,7 @@ const OverflowScroller = ({
 
         const onScroll = () => {
             setCanScrollLeft(container.scrollLeft > 0);
-            setCanScrollRight(
-                container.scrollLeft <
-                    container.scrollWidth - container.clientWidth
-            );
+            setCanScrollRight(container.scrollLeft < container.scrollWidth - container.clientWidth);
         };
         container.addEventListener("scroll", onScroll);
 
@@ -83,8 +80,7 @@ const OverflowScroller = ({
 
         // Scroll distance based on item width and number of items
         const delta = itemWidth * itemsToScroll;
-        const maxScroll =
-            containerRef.current.scrollWidth - containerRef.current.clientWidth;
+        const maxScroll = containerRef.current.scrollWidth - containerRef.current.clientWidth;
 
         // Set newScroll position between 0 and maximum scroll
         const newScroll =
@@ -102,19 +98,15 @@ const OverflowScroller = ({
                 <h1 className="text-2xl font-bold">{title}</h1>
                 <div className="flex gap-4">
                     <i
-                        className={`bi bi-chevron-left text-primary-ivory hover:text-primary-blue text-2xl transition duration-300 cursor-pointer ${
-                            !canScrollLeft
-                                ? "opacity-50 cursor-not-allowed"
-                                : ""
-                        }`}
+                        className={`bi bi-chevron-left text-primary-ivory hover:text-primary-blue text-2xl transition duration-300 cursor-pointer
+                            ${!canScrollLeft ? "opacity-50 cursor-not-allowed" : ""}
+                        `}
                         onClick={() => scrollBy("left")}
                     />
                     <i
-                        className={`bi bi-chevron-right text-primary-ivory hover:text-primary-blue text-2xl transition duration-300 cursor-pointer ${
-                            !canScrollRight
-                                ? "opacity-50 cursor-not-allowed"
-                                : ""
-                        }`}
+                        className={`bi bi-chevron-right text-primary-ivory hover:text-primary-blue text-2xl transition duration-300 cursor-pointer
+                            ${!canScrollRight ? "opacity-50 cursor-not-allowed" : ""}
+                        `}
                         onClick={() => scrollBy("right")}
                     />
                 </div>
