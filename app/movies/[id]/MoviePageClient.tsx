@@ -2,6 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { CACHE_DURATION } from "../../../constants/global";
+import BackgroundCover from "../../../components/covers/background/backgroundCover";
 
 const MoviePageClient = ({ movieId }: { movieId: string }) => {
     const { data, error, isLoading } = useQuery({
@@ -16,10 +17,10 @@ const MoviePageClient = ({ movieId }: { movieId: string }) => {
 
     return (
         <div className="flex flex-col max-w-[1440px] mx-auto bg-gray-100 text-gray-600 dark:bg-primary-dark dark:text-gray-200 p-4">
-            <div className="w-full mb-4">
+            <BackgroundCover imageUrl={`https://image.tmdb.org/t/p/w1280${data.backdrop_path}`}>
                 <h1>{data.title}</h1>
                 <p>{data.overview}</p>
-            </div>
+            </BackgroundCover>
         </div>
     );
 };
