@@ -16,7 +16,7 @@ const MoviePageClient = ({ movieId }: { movieId: string }) => {
     if (!data) return <p>No movie data found</p>;
 
     return (
-        <div className="flex flex-col max-w-[1440px] mx-auto bg-gray-100 text-gray-600 dark:bg-primary-dark dark:text-gray-200 p-4">
+        <div className="flex flex-col max-w-[1440px] mx-auto bg-gray-100 text-gray-600 dark:bg-primary-dark dark:text-gray-200">
             <BackgroundCover imageUrl={`https://image.tmdb.org/t/p/w1280${data.backdrop_path}`}>
                 <h1>{data.title}</h1>
                 <p>{data.overview}</p>
