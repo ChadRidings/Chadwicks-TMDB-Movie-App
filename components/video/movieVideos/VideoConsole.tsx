@@ -19,7 +19,7 @@ const VideoConsole = ({
             {videos.map((video: VideoType) => (
                 <div key={video.id} className="mb-6">
                     <h3>{video.name}</h3>
-                    <p className="text-sm italic">Published: {dayjs(video.published_at).format("YYYY-MM-DD")}</p>
+                    <p className="text-sm italic">Published: {dayjs(video.published_at).format("MMMM D, YYYY")}</p>
 
                     <ReactPlayer
                         className=""
