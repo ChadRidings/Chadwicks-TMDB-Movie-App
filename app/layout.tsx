@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Header from "../components/header/Header";
+import NavBar from "../components/navigation/NavBar";
 import Footer from "../components/footer/Footer";
 import "../styles/globals.css";
 
@@ -26,6 +27,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
                 className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
             >
                 <Header />
+                <NavBar />
                 {children}
                 <Footer />
             </body>

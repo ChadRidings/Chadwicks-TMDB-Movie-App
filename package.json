@@ -1,5 +1,7 @@
 {
-  "name": "chads-nextjs",
+  "name": "chadwicks-tmdb-movie-app",
+  "description": "A movie application that utilizes the TMDB API. Written in NextJS/React, TypeScript, TailwindCSS, and Tanstack Query ",
+  "author": "Chad Ridings",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,9 +14,11 @@
     "@tanstack/react-query": "^5.85.3",
     "@tanstack/react-query-devtools": "^5.85.3",
     "bootstrap-icons": "^1.13.1",
+    "dayjs": "^1.11.13",
     "next": "^15.4.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-player": "^3.3.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -4,37 +4,33 @@ import ThemeToggle from "../theme/ThemeToggle";
 
 const NavBar = () => {
     return (
-        <nav className="mt-2">
+        <nav className="py-2 px-6 md:py-4 bg-gray-100 dark:bg-primary-dark">
             <ul className="flex space-x-4 items-center">
                 <Link href="/">
                     <Image
                         src="/images/chadwicks.png"
                         alt="Chadwick's Logo"
-                        width={189}
-                        height={37}
+                        width={288}
+                        height={70}
                         className=""
                         priority={true}
-                        style={{
-                            width: "189px",
-                            height: "37px",
-                            objectFit: "cover",
-                        }}
+                        style={{ width: "150px", height: "auto" }}
                     />
                 </Link>
                 <li>
                     <a
                         href="/about"
-                        className="text-gray-600 dark:text-gray-300 hover:text-primary-blue"
+                        className="text-gray-600 font-bold dark:text-gray-300 hover:text-primary-blue"
                     >
-                        About
+                        ABOUT
                     </a>
                 </li>
                 <li>
                     <a
                         href="/contact"
-                        className="text-gray-600 dark:text-gray-300 hover:text-primary-blue"
+                        className="text-gray-600 font-bold dark:text-gray-300 hover:text-primary-blue"
                     >
-                        Contact
+                        CONTACT
                     </a>
                 </li>
                 <li>
