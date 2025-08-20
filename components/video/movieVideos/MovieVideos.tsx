@@ -4,8 +4,6 @@ import VideoConsole from "./VideoConsole";
 import type { VideoType, VideosType } from '../../../types/global';
 
 const MovieVideos = ({ videos }: { videos: VideosType }) => {
-    console.log("MovieVideos data:", videos);
-
     // For now, filter the videos to only show YouTube videos.
     const youtubeVideos = videos.results.filter((video: VideoType) => video.site === 'YouTube');
 

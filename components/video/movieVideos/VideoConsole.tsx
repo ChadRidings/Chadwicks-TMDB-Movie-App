@@ -11,11 +11,10 @@ const VideoConsole = ({
     title: string;
     videos: VideoType[];
 }) => {
-    console.log("Trailer data:", videos);
-
     return (
         <>
             <h2 className="text-2xl font-bold mb-4">{title}</h2>
+
             {videos.map((video: VideoType) => (
                 <div key={video.id} className="mb-6">
                     <h3>{video.name}</h3>
@@ -32,6 +31,7 @@ const VideoConsole = ({
                                 iv_load_policy: 3,
                             },
                         }}
+                        crossOrigin="anonymous"
                     />
                 </div>
             ))}
