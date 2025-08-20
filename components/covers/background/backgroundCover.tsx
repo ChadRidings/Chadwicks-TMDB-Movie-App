@@ -11,7 +11,7 @@ const BackgroundCover = ({
             style={{ backgroundImage: `url(${imageUrl})` }}
         >
             {/* Overlay tint layer */}
-            <div className="absolute inset-0 bg-black/85" />
+            <div className="absolute inset-0 bg-black/90" />
 
             {/* Content goes on top of overlay */}
             <div className="relative z-10">
