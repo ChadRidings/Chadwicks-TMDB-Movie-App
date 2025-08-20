@@ -3,9 +3,9 @@ import { API_TOKEN } from "../../../../../constants/global";
 
 export const GET = async (
     _request: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) => {
-    const movieId = params.id;
+    const { id: movieId } = await params;
 
     if (!API_TOKEN) {
         return NextResponse.json(

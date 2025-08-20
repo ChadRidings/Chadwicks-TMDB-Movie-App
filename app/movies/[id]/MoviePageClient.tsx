@@ -25,9 +25,11 @@ const MoviePageClient = ({ movieId }: { movieId: string }) => {
                 <p>Rating: {movie.vote_average}</p>
                 <p>Runtime: {movie.runtime} minutes</p>
                 
-                {videos && videos.results.length > 0 && (
-                    <MovieVideos videos={videos} />
-                )}
+                <div className="mt-4">
+                    {videos && videos.results.length > 0 && (
+                        <MovieVideos videos={videos} />
+                    )}
+                </div>
 
                 {!videos || videos.results.length === 0 ? (
                     <p>No videos available for this movie.</p>

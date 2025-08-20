@@ -1,9 +1,15 @@
-'use client';
+"use client";
 
-import ReactPlayer from 'react-player';
-import type { VideoType } from '../../../types/global';
+import ReactPlayer from "react-player";
+import type { VideoType } from "../../../types/global";
 
-const VideoConsole = ({ title, videos }: { title: string; videos: VideoType[] }) => {
+const VideoConsole = ({
+    title,
+    videos,
+}: {
+    title: string;
+    videos: VideoType[];
+}) => {
     console.log("Trailer data:", videos);
 
     return (
@@ -16,7 +22,13 @@ const VideoConsole = ({ title, videos }: { title: string; videos: VideoType[] })
                         <ReactPlayer
                             key={video.id}
                             src={`https://www.youtube.com/watch?v=${video.key}`}
-                            crossOrigin="anonymous"
+                            controls
+                            config={{
+                                youtube: {
+                                    color: "white",
+                                    iv_load_policy: 3,
+                                },
+                            }}
                         />
                     </div>
                 ))}

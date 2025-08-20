@@ -7,7 +7,7 @@ const BackgroundCover = ({
 }: BackgroundCoverType) => {
     return (
         <div
-            className={`relative w-full h-64 bg-center bg-cover ${className || ""} p-4`}
+            className={`relative w-full bg-center bg-cover ${className || ""} p-4`}
             style={{ backgroundImage: `url(${imageUrl})` }}
         >
             {/* Overlay tint layer */}
