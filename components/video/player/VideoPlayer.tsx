@@ -2,10 +2,10 @@
 
 import { useRef, useState } from "react";
 
-export default function VideoPlayer() {
+export default function VideoPlayer({ videoUrl }: { videoUrl: string }) {
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
-    const [currentVideo, setCurrentVideo] = useState<string>("https://videos.pexels.com/video-files/3121102/3121102-uhd_2560_1440_24fps.mp4");
+    const [currentVideo, setCurrentVideo] = useState<string>(videoUrl);
 
     const handlePlay = () => {
         videoRef.current?.play();

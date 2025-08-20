@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { API_TOKEN } from "../../../../../../constants/global";
+import { API_TOKEN } from "../../../../constants/global";
 
 export const GET = async (
     _request: Request,
@@ -9,17 +9,25 @@ export const GET = async (
 
     if (!API_TOKEN) {
         return NextResponse.json(
-            { error: "Missing TMDB API key" },
+            { error: "Missing TMDB access token" },
             { status: 500 }
+        );
+    }
+
+    if (!movieId) {
+        return NextResponse.json(
+            { error: "Movie ID is required" },
+            { status: 400 }
         );
     }
 
     try {
         const res = await fetch(
-            `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`,
+            `https://api.themoviedb.org/3/movie/${movieId}`,
             {
                 headers: {
                     Authorization: `Bearer ${API_TOKEN}`,
+                    Accept: "application/json",
                 },
             }
         );
