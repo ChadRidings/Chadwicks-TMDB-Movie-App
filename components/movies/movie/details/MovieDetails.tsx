@@ -24,7 +24,7 @@ const MovieDetails = ({ movie }: { movie: MovieDetailsType }) => {
 
             {movie.homepage && (
                 <p className="text-sm text-gray-500">
-                    Official Site:{" "}
+                    Official Site:
                     <a
                         href={movie.homepage}
                         target="_blank"
@@ -38,14 +38,14 @@ const MovieDetails = ({ movie }: { movie: MovieDetailsType }) => {
 
             {movie.genres.length > 0 && (
                 <p className="text-sm text-gray-500">
-                    Genres:{" "}
+                    Genres:
                     {movie.genres.map((genre) => genre.name).join(", ")}
                 </p>
             )}
 
             {movie.production_companies.length > 0 && (
                 <p className="text-sm text-gray-500">
-                    Production Companies:{" "}
+                    Production Companies:
                     {movie.production_companies
                         .map((company) => company.name)
                         .join(", ")}
@@ -54,7 +54,7 @@ const MovieDetails = ({ movie }: { movie: MovieDetailsType }) => {
 
             {movie.production_countries.length > 0 && (
                 <p className="text-sm text-gray-500">
-                    Production Countries:{" "}
+                    Production Countries:
                     {movie.production_countries
                         .map((country) => country.name)
                         .join(", ")}
@@ -63,7 +63,7 @@ const MovieDetails = ({ movie }: { movie: MovieDetailsType }) => {
 
             {movie.spoken_languages.length > 0 && (
                 <p className="text-sm text-gray-500">
-                    Spoken Languages:{" "}
+                    Spoken Languages:
                     {movie.spoken_languages
                         .map((language) => language.name)
                         .join(", ")}
