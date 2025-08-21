@@ -11,9 +11,14 @@
     --color-primary-dark: #030708;
     --color-primary-gray: #2f2e2c;
     --color-primary-yellow: #faa91a;
-    --color-primary-ivory: #F3E7D3;
-    --color-primary-orange: #E25D1D;
-    --color-primary-blue: #1E90FF;
+    --color-primary-ivory: #f3e7d3;
+    --color-primary-orange: #e25d1d;
+    --color-primary-blue: #1e90ff;
+
+    /* custom fonts */
+    --font-geist-sans: "Geist Sans", sans-serif;
+    --font-geist-mono: "Geist Mono", monospace;
+    --font-smooch-sans: "Smooch Sans", sans-serif;
 }
 
 /* Bootstrap Icons */
@@ -21,3 +26,6 @@
 
 /* Utilities */
 @import "./utilities.css";
+
+/* Fonts */
+@import "./fonts.css";

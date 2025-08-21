@@ -29,13 +29,13 @@ const CardVersionOne = ({ movie }: { movie: MovieType }) => {
                 </Link>
             </div>
             <div className="w-[180px] h-[192px] flex flex-col">
-                <div className="flex-shrink-0 overflow-x-hidden whitespace-nowrap text-ellipsis text-primary-yellow">
+                <div className="flex-shrink-0 overflow-x-hidden whitespace-nowrap text-ellipsis text-primary-yellow font-smooch-sans text-xl mb-0">
                     {movie.title}
                 </div>
-                <div className="flex-1 overflow-y-hidden">
+                <div className="flex-1 overflow-y-hidden mb-0">
                     <p className="text-sm">{movie.overview}</p>
                 </div>
-                <div className="flex-shrink-0 mb-1">
+                <div className="flex-shrink-0 mb-0">
                     <StarRanking rating={movie.vote_average} />
                 </div>
             </div>

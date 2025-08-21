@@ -16,7 +16,7 @@ const VideoConsole = ({
 
     return (
         <div className="w-full">
-            <h2 className="text-2xl font-bold text-primary-b mb-4">{title}</h2>
+            <h2 className="text-3xl text-primary-yellow font-smooch-sans mb-4">{title}</h2>
 
             <VideoPlayer videoKey={selectedVideo} />
             <VideoThumbnails

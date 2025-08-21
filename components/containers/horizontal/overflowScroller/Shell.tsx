@@ -95,16 +95,16 @@ const OverflowScroller = ({
     return (
         <>
             <div className="flex justify-between items-center mb-4">
-                <h1 className="text-2xl font-bold">{title}</h1>
+                <h2 className="text-3xl font-smooch-sans text-primary-yellow">{title}</h2>
                 <div className="flex gap-4">
                     <i
-                        className={`bi bi-chevron-left text-primary-ivory hover:text-primary-blue text-2xl transition duration-300 cursor-pointer
+                        className={`bi bi-chevron-left text-primary-blue hover:text-primary-ivory text-2xl transition duration-300 cursor-pointer
                             ${!canScrollLeft ? "opacity-50 cursor-not-allowed" : ""}
                         `}
                         onClick={() => scrollBy("left")}
                     />
                     <i
-                        className={`bi bi-chevron-right text-primary-ivory hover:text-primary-blue text-2xl transition duration-300 cursor-pointer
+                        className={`bi bi-chevron-right text-primary-blue hover:text-primary-ivory text-2xl transition duration-300 cursor-pointer
                             ${!canScrollRight ? "opacity-50 cursor-not-allowed" : ""}
                         `}
                         onClick={() => scrollBy("right")}

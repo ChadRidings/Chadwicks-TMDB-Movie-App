@@ -6,7 +6,7 @@ import type { MovieDetailsType } from "../../../../types/global";
 const MovieDetails = ({ movie }: { movie: MovieDetailsType }) => {
     return (
         <div className="movie-details">
-            <h1 className="text-3xl font-bold mb-4 text-primary-yellow">{movie.title}</h1>
+            <h1 className="text-5xl text-primary-yellow font-smooch-sans mb-4">{movie.title}</h1>
 
             <p className="mb-2">{movie.overview}</p>
 

@@ -1,0 +1,10 @@
+/* Global Styles */
+.geist-sans {
+    font-family: var(--font-geist-sans);
+}
+.geist-mono {
+    font-family: var(--font-geist-mono);
+}
+.smooch-sans {
+    font-family: var(--font-smooch-sans);
+}
