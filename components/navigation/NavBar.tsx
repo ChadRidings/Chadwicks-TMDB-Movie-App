@@ -20,7 +20,7 @@ const NavBar = () => {
                 <li>
                     <a
                         href="/about"
-                        className="text-gray-600 font-bold dark:text-gray-300 hover:text-primary-blue"
+                        className="text-primary-blue font-bold hover:text-primary-ivory"
                     >
                         ABOUT
                     </a>
@@ -28,7 +28,7 @@ const NavBar = () => {
                 <li>
                     <a
                         href="/contact"
-                        className="text-gray-600 font-bold dark:text-gray-300 hover:text-primary-blue"
+                        className="text-primary-blue font-bold hover:text-primary-ivory"
                     >
                         CONTACT
                     </a>
