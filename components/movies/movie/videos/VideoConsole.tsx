@@ -42,23 +42,32 @@ const VideoConsole = ({
             </div>
 
             {videos.map((video: VideoType) => (
-                <div key={video.id} className="mb-6">
-                    <h3>{video.name}</h3>
+                <div key={video.id} className="relative overflow-hidden">
+                    {/* <h3>{video.name}</h3>
                     <p className="text-sm italic">
                         Published:{" "}
                         {dayjs(video.published_at).format("MMMM D, YYYY")}
-                    </p>
+                    </p> */}
 
                     <Image
                         src={`https://img.youtube.com/vi/${video.key}/maxresdefault.jpg`}
                         onClick={() => setSelectedVideo(video.key)}
-                        className="cursor-pointer mb-2"
+                        className={
+                            "cursor-pointer mb-2 " +
+                            (selectedVideo === video.key
+                                ? "border-2 border-primary-yellow"
+                                : "")
+                        }
                         alt={video.name}
                         width={800}
                         height={600}
                         style={{ width: "192px", height: "108px" }}
                         aria-label={`Thumbnail for ${video.name}`}
                     />
+
+                    {selectedVideo === video.key && (
+                        <div className="absolute inset-0 bg-black/90" />
+                    )}
                 </div>
             ))}
         </div>
