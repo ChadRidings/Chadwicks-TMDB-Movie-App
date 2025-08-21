@@ -40,6 +40,7 @@ const VideoThumbnails = ({
                             <>
                                 <div className="absolute inset-0 bg-black/85" />
                                 <p className="absolute bottom-[4px] left-[6px] z-10 text-xs text-primary-yellow italic">
+                                    {video.name}<br/>
                                     Published:{" "}
                                     {dayjs(video.published_at).format(
                                         "MMMM D, YYYY"
