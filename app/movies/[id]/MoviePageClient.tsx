@@ -3,7 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import BackgroundCover from "../../../components/covers/background/backgroundCover";
 import MovieDetails from "../../../components/movies/movie/details/MovieDetails";
-import MovieVideos from "../../../components/movies/movie/videos/MovieVideos";
+import MovieVideos from "../../../components/video/MovieVideos";
 
 const MoviePageClient = ({ movieId }: { movieId: string }) => {
     const { data: movie } = useQuery({

@@ -1,7 +1,7 @@
 'use client';
 
 import VideoConsole from "./VideoConsole";
-import type { VideoType, VideosType } from '../../../../types/global';
+import type { VideoType, VideosType } from '../../types/global';
 
 const MovieVideos = ({ videos }: { videos: VideosType }) => {
     // For now, filter the videos to only show YouTube videos.

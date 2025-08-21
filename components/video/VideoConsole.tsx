@@ -3,7 +3,7 @@
 import { useState } from "react";
 import VideoPlayer from "./VideoPlayer";
 import VideoThumbnails from "./VideoThumbnails";
-import type { VideoType } from "../../../../types/global";
+import type { VideoType } from "../../types/global";
 
 const VideoConsole = ({
     title,

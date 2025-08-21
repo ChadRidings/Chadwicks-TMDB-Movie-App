@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import dayjs from "dayjs";
-import type { VideoType } from "../../../../types/global";
+import type { VideoType } from "../../types/global";
 
 const VideoThumbnails = ({
     videos,
