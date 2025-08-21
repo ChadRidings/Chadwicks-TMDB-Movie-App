@@ -36,6 +36,7 @@ const VideoConsole = ({
                             },
                         }}
                         crossOrigin="anonymous"
+                        aria-label={`Video player`}
                     />
                 </div>
             </div>
@@ -56,6 +57,7 @@ const VideoConsole = ({
                         width={800}
                         height={600}
                         style={{ width: "192px", height: "108px" }}
+                        aria-label={`Thumbnail for ${video.name}`}
                     />
                 </div>
             ))}
